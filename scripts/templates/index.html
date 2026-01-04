@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>小狗刷机工具</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>欢迎使用小狗刷机工具</h1>
+      <p>当前版本号：{{ current_version }}</p>
+      <form action="{{ url_for('verify') }}" method="POST">
+        <input type="password" name="password" placeholder="请输入密码" required>
+        <input type="hidden" name="remote_password" value="{{ remote_password }}">
+        <button type="submit">验证密码</button>
+        <button type="button" onclick="window.location.href='{{ no_password_url }}'">获取密码</button>
+      </form>
+    </div>
+  </body>
+</html>
